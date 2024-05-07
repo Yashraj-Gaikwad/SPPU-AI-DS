@@ -1,0 +1,16 @@
+CREATE DATABASE mydatabase;
+
+USE mydatabase;
+
+CREATE TABLE mytable(id INT, name STRING, age INT);
+
+INSERT INTO mytable VALUES(1, 'John', 30);
+INSERT INTO mytable VALUES(2, 'Jane', 25);
+
+SELECT * FROM mytable;
+
+DROP TABLE mytable
+
+DROP DATABSE mydatabase
+
+

@@ -1,0 +1,35 @@
+// Here's a simple Scala program using the Apache Spark framework to count the number of occurrences of each word in a text file:
+
+
+
+import org.apache.spark.{SparkConf, SparkContext}
+
+object WordCount {
+  def main(args: Array[String]): Unit = {
+    // Create a SparkConf object with a Spark application name
+    val conf = new SparkConf().setAppName("WordCount")
+    
+    // Create a SparkContext object
+    val sc = new SparkContext(conf)
+    
+    // Load the input text file
+    val inputFile = "input.txt"
+    val input = sc.textFile(inputFile)
+    
+    // Split each line into words
+    val words = input.flatMap(line => line.split(" "))
+    
+    // Map each word to a tuple (word, 1)
+    val wordCounts = words.map(word => (word, 1))
+    
+    // Reduce by key to count the occurrences of each word
+    val counts = wordCounts.reduceByKey(_ + _)
+    
+    // Print the word counts
+    counts.foreach(println)
+    
+    // Stop the SparkContext
+    sc.stop()
+  }
+}
+
