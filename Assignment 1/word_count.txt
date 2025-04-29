@@ -1,0 +1,1 @@
+Hadoop is an open-source framework used for storing and processing large datasets across clusters of computers. It uses a distributed file system (HDFS) and the MapReduce programming model. Designed for scalability and fault tolerance, Hadoop enables efficient data analysis and is widely used in big data applications across industries.
